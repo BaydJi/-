@@ -72,3 +72,21 @@
 
     Console.WriteLine("Введите целое число: ");
     int number = Convert.ToInt32(Console.ReadLine();
+    
+## 4. ToString()
+Функция позволяет привести числа к строке.
+
+Пример:
+
+    int number = GetRandomNumber(10, 100);
+    Console.WriteLine("Number: " + number);
+    string str = number.ToString();
+    int result = Convert.ToInt32(str[0].ToString());//Записываю первую цифру числа
+    for (int i = 1; i < str.Length; i++)
+    {
+        if (result < Convert.ToInt32(str[i].ToString()))
+        {
+            result = Convert.ToInt32(str[i].ToString());
+        }
+     }
+     Console.WriteLine("Result: " + result);
