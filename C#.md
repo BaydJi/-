@@ -90,3 +90,41 @@
         }
      }
      Console.WriteLine("Result: " + result);
+
+## 5. Parse
+Функция позволяет удалить значение в нужном индексе.
+
+Пример:
+
+    int number = GetRandomNumber(100, 1000);
+    Console.WriteLine("Number: " + number);
+    string str = number.ToString();
+    int result = int.Parse(str.Remove(str.Length -2, 1));
+    Console.WriteLine("Result: " + result);
+    
+## 6. Split
+Функция позволяет в консоли вводи значения через определенный разделитель.
+
+Пример:
+
+    Console.WriteLine("Введите числа через пробел");
+    string str = Console.ReadLine();
+    string[] nums = str.Split(' '); // split получение из строки массива по определенному разделителю
+    for (int i = 0; i < nums.Length; i++) // Перебор массива строк с помощью цикла
+    {
+        Console.WriteLine(nums[i] + " ");
+    }
+    
+## 7. GetSquare
+Функция возводит значение в квадрат.
+
+Пример:
+
+    int a = Convert.ToInt32(Console.ReadLine()); // Читаем число с консоли
+    int[] squares = GetSquare(a); // Получаем резкльтат функции GetSquare
+
+    for (int i = 0; i < squares.Length; i++) // Перебор массива с помощью цикла
+    {
+        Console.WriteLine( squares[i] + " "); // вывод чисел в консоль
+    }
+    
