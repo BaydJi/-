@@ -128,3 +128,102 @@
         Console.WriteLine( squares[i] + " "); // вывод чисел в консоль
     }
     
+## 8. Random()
+Функция позволяет получить рандомные значения.
+
+Пример:
+
+    int what = new Random().Next(0, 3);//[0;3) 0 1 2
+    
+## 9. Break
+Функция позволяет прервать алгоритм после получения нужного результата.
+
+Пример:
+
+    while (index < n)  
+    {
+        if (array[index] == find)
+        {
+            Console.WriteLine(index);
+            break;//Прерывание алгоритма
+        }
+        index++;
+    }
+    
+## 10. Replace
+Функция позволяет заменить старый элемент на новый элемент.
+
+Пример:
+
+    string Replace(string text, char oldValue, char newValue)
+    {
+        string result = string.Empty;
+
+        int length = text.Length;
+        for (int i = 0; i < length; i++)
+        {
+            if (text[i] == oldValue) 
+            result = result + $"{newValue}";
+            else 
+            result = result + $"{text[i]}";
+        }
+        return result;
+    }
+
+    string newText = Replace(text, ' ', '|');
+    Console.WriteLine(newText);
+    
+
+## Виды методов
+
+# Вид 1
+Метод, который ничего не возвращает и ничего не принимает
+
+    void Method1()
+    {
+        Console.WriteLine("");
+
+    }
+    Method1();
+
+# Вид 2
+Метод, который принимает аргумены, но ичего не возвращает
+
+    void Method2(string msg, int count)
+    {
+        int i = 0;
+        while (i < count)
+        {
+            Console.WriteLine(msg);
+            i++;
+        }
+    }
+    Method2(msg: "Текст сообщения", count: 4);
+
+# Вид 3
+Метод, который что то возвращает, но ничего не принимает
+
+    int Method3()
+    {
+        return DateTime.Now.Year;
+    }
+
+    int year = Method3();
+    Console.WriteLine(year);
+
+# Вид 4 
+Метод, который что то принимает и что то возвращает
+
+    string Method4(int count, string text)
+    {
+        int i = 0;
+        string result = string.Empty; // string.Empty - пустая строка
+        while (i < count)
+        {
+            result = result + text;
+            i++;
+        } 
+        return result;
+    }
+
+    string res = Method4(10, "asdf");
