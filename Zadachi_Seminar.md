@@ -18,247 +18,247 @@
   
 # 2.
   
-  // Console.WriteLine("Введите целое трехзначное число: ");
-  // double N = Convert.ToInt32(Console.ReadLine()); 
-  // double remains = N % 10; 
-  // Console.WriteLine($"Последняя цифра: {remains} ");
+    // Console.WriteLine("Введите целое трехзначное число: ");
+    // double N = Convert.ToInt32(Console.ReadLine()); 
+    // double remains = N % 10; 
+    // Console.WriteLine($"Последняя цифра: {remains} ");
 
-  // Console.WriteLine("Введите целое трехзначное число: ");
-  // string str = Console.ReadLine();
-  // Console.WriteLine(str[str.Length - 1]);
+    // Console.WriteLine("Введите целое трехзначное число: ");
+    // string str = Console.ReadLine();
+    // Console.WriteLine(str[str.Length - 1]);
 
-  Console.WriteLine("Введите целое трехзначное число: ");
-  Console.WriteLine(Convert.ToInt32(Console.ReadLine()) % 10); 
+    Console.WriteLine("Введите целое трехзначное число: ");
+    Console.WriteLine(Convert.ToInt32(Console.ReadLine()) % 10); 
 
-  // Console.WriteLine(Console.ReadLine().ToString().ToCharArray().LastOrDefault()); 
-  // string? -> string -> char[]
-  // LastOrDefault - последний или дефолтный элемент
+    // Console.WriteLine(Console.ReadLine().ToString().ToCharArray().LastOrDefault()); 
+    // string? -> string -> char[]
+    // LastOrDefault - последний или дефолтный элемент
   
 # 3.
 
-  namespace Helloworld // namespace показывает территорию где мы находимся, логическое структурирование
-  {
-  // Напишите программу, которая выводит случайное число из отрезка [10,99] и показывает наибольшую цифру числа.
-  // 78 -> 8
-  // 186 -> 8
-      class Program // class единица, подпрограмка, выполняющая одну функцию
-      {
-          public static void Main(string[] args)
-          {
-              // Вызов метода и получение результата от метода
-              int number = GetRandomNumber(10, 100);
-              Console.WriteLine("Number: " + number);
-              string str = number.ToString(); // Приведение number к строке (string)
-              int result = Convert.ToInt32(str[0].ToString());//Записываю первую цифру числа
-              for (int i = 1; i < str.Length; i++)
-              {
-                  if (result < Convert.ToInt32(str[i].ToString()))
-                  {
-                  result = Convert.ToInt32(str[i].ToString());
-                  }
-              }
-              Console.WriteLine("Result: " + result);
-          }
+    namespace Helloworld // namespace показывает территорию где мы находимся, логическое структурирование
+    {
+    // Напишите программу, которая выводит случайное число из отрезка [10,99] и показывает наибольшую цифру числа.
+    // 78 -> 8
+    // 186 -> 8
+        class Program // class единица, подпрограмка, выполняющая одну функцию
+        {
+            public static void Main(string[] args)
+            {
+                // Вызов метода и получение результата от метода
+                int number = GetRandomNumber(10, 100);
+                Console.WriteLine("Number: " + number);
+                string str = number.ToString(); // Приведение number к строке (string)
+                int result = Convert.ToInt32(str[0].ToString());//Записываю первую цифру числа
+                for (int i = 1; i < str.Length; i++)
+                {
+                    if (result < Convert.ToInt32(str[i].ToString()))
+                    {
+                    result = Convert.ToInt32(str[i].ToString());
+                    }
+                }
+                Console.WriteLine("Result: " + result);
+            }
 
-          //Объявляем функцию(метод)
-          //<тип данных возвращаемого значения> <имя функции> (<параметры>)
-          public static int GetRandomNumber(int first, int second)
-          {
-              int number = new Random().Next(first, second);// Получаем случайное число от first включительно до second не включительно
-              return number;//Возвращаем значение
-          } 
-      }
-  }
+            //Объявляем функцию(метод)
+            //<тип данных возвращаемого значения> <имя функции> (<параметры>)
+            public static int GetRandomNumber(int first, int second)
+            {
+                int number = new Random().Next(first, second);// Получаем случайное число от first включительно до second не включительно
+                return number;//Возвращаем значение
+            } 
+        }
+    }
   
 # 4.
 
-// Программа, которая выводит случайное трехзначное число и удаляет вторую цифру этого числа
+    // Программа, которая выводит случайное трехзначное число и удаляет вторую цифру этого числа
 
-  namespace Helloworld
-  {
-      class Program
+      namespace Helloworld
       {
-          public static void Main(string[] args)
+          class Program
           {
-              int number = GetRandomNumber(100, 1000);
-              Console.WriteLine("Number: " + number);
-              string str = number.ToString();
-              int result = int.Parse(str.Remove(str.Length -2, 1));
-              Console.WriteLine("Result: " + result);
+              public static void Main(string[] args)
+              {
+                  int number = GetRandomNumber(100, 1000);
+                  Console.WriteLine("Number: " + number);
+                  string str = number.ToString();
+                  int result = int.Parse(str.Remove(str.Length -2, 1));
+                  Console.WriteLine("Result: " + result);
+              }
+
+              public static int GetRandomNumber(int first, int second)
+              {
+                  int number = new Random().Next(first, second);// Получаем случайное число от first включительно до second не включительно
+                  return number;//Возвращаем значение
+              } 
+
           }
-
-          public static int GetRandomNumber(int first, int second)
-          {
-              int number = new Random().Next(first, second);// Получаем случайное число от first включительно до second не включительно
-              return number;//Возвращаем значение
-          } 
-
       }
-  }
   
 # 5.
 
-// Напиишите программу, которая принимает на вход трехзначное число и на выходе показывает вторую цифру этого числа.
-// Решение через рандом без учета отрицательных чисел.
+    // Напиишите программу, которая принимает на вход трехзначное число и на выходе показывает вторую цифру этого числа.
+    // Решение через рандом без учета отрицательных чисел.
 
-  namespace Helloworld 
-  {
-
-      class Program
+      namespace Helloworld 
       {
-          public static void Main(string[] args)
-          {
-              int number = GetRandomNumber(100, 1000);
-              Console.WriteLine("Number: " + number);
-              string str = number.ToString(); 
-              int result = Convert.ToInt32(str[1].ToString());
 
-              Console.WriteLine("Result: " + result);
-          }
-          public static int GetRandomNumber(int first, int second)
+          class Program
           {
-              int number = new Random().Next(first, second);
-              return number;
-          } 
+              public static void Main(string[] args)
+              {
+                  int number = GetRandomNumber(100, 1000);
+                  Console.WriteLine("Number: " + number);
+                  string str = number.ToString(); 
+                  int result = Convert.ToInt32(str[1].ToString());
+
+                  Console.WriteLine("Result: " + result);
+              }
+              public static int GetRandomNumber(int first, int second)
+              {
+                  int number = new Random().Next(first, second);
+                  return number;
+              } 
+          }
       }
-  }
   
 # 6.
 
-  // Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
-  // Не рандом, с учетом отрицательных.
+      // Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+      // Не рандом, с учетом отрицательных.
 
-  Console.WriteLine("Введите число: ");
-  int number = Convert.ToInt32(Console.ReadLine());
-  if (number < 0)
-  {
-      string str = number.ToString();
-      if (str.Length > 3)
+      Console.WriteLine("Введите число: ");
+      int number = Convert.ToInt32(Console.ReadLine());
+      if (number < 0)
       {
-          int result = Convert.ToInt32(str[3].ToString());
-          Console.WriteLine("Третья цифра: " + result);
-      }
-      else
+          string str = number.ToString();
+          if (str.Length > 3)
+          {
+              int result = Convert.ToInt32(str[3].ToString());
+              Console.WriteLine("Третья цифра: " + result);
+          }
+          else
+          {
+              Console.WriteLine("Третьей цифры нет");
+          }
+      }    
+      if (number > 0) 
       {
-          Console.WriteLine("Третьей цифры нет");
+          string str = number.ToString();
+          if (str.Length > 2)
+          {
+              int result = Convert.ToInt32(str[2].ToString());
+              Console.WriteLine("Третья цифра: " + result);
+          }
+          else
+          {
+              Console.WriteLine("Третьей цифры нет");
+          }
       }
-  }    
-  if (number > 0) 
-  {
-      string str = number.ToString();
-      if (str.Length > 2)
-      {
-          int result = Convert.ToInt32(str[2].ToString());
-          Console.WriteLine("Третья цифра: " + result);
-      }
-      else
-      {
-          Console.WriteLine("Третьей цифры нет");
-      }
-  }
   
 # 7.
 
-  namespace HelloWorld
-  {
-      class Program
+      namespace HelloWorld
       {
-          public static void Main(string[] args)
-              {
-                  Console.WriteLine("Введите числа через пробел");
-                  string str = Console.ReadLine();
-                  string[] nums = str.Split(' '); // split получение из строки массива по определенному разделителю
-                  for (int i = 0; i < nums.Length; i++) // Перебор массива строк с помощью цикла
+          class Program
+          {
+              public static void Main(string[] args)
                   {
-                      Console.WriteLine(nums[i] + " ");
+                      Console.WriteLine("Введите числа через пробел");
+                      string str = Console.ReadLine();
+                      string[] nums = str.Split(' '); // split получение из строки массива по определенному разделителю
+                      for (int i = 0; i < nums.Length; i++) // Перебор массива строк с помощью цикла
+                      {
+                          Console.WriteLine(nums[i] + " ");
+                      }
                   }
-              }
+          }
       }
-  }
   
 # 8.
 
-  // Напишите программу, которая по заданному номеру четверти, показывает диапазон
-  // возможных координат точек в этой четверти (x, y).
+      // Напишите программу, которая по заданному номеру четверти, показывает диапазон
+      // возможных координат точек в этой четверти (x, y).
 
-  namespace HelloWorld
-  {
-      class Program
+      namespace HelloWorld
       {
-          public static void Main(string[] args)
+          class Program
           {
-              try
+              public static void Main(string[] args)
               {
-                  Console.Write("Введите номер четверти от 1 до 4: ");
-                  int num = Convert.ToInt32(Console.ReadLine());
-                  int max = int.MaxValue;
-                  int min = int.MinValue;
-                  if (num == 1) Console.WriteLine($"Диапозон X равен от 1 до {max}, диапозон Y равен от 1 до {max}");
-                  if (num == 2) Console.WriteLine($"Диапозон X равен от -1 до {min}, диапозон Y равен от 1 до {max}");
-                  if (num == 3) Console.WriteLine($"Диапозон X равен от -1 до {min}, диапозон Y равен от -1 до {min}");
-                  if (num == 4) Console.WriteLine($"Диапозон X равен от 1 до {max}, диапозон Y равен от -1 до {min}");
-                  else Console.WriteLine("Диапозона не существует");
-              Console.ReadKey();
+                  try
+                  {
+                      Console.Write("Введите номер четверти от 1 до 4: ");
+                      int num = Convert.ToInt32(Console.ReadLine());
+                      int max = int.MaxValue;
+                      int min = int.MinValue;
+                      if (num == 1) Console.WriteLine($"Диапозон X равен от 1 до {max}, диапозон Y равен от 1 до {max}");
+                      if (num == 2) Console.WriteLine($"Диапозон X равен от -1 до {min}, диапозон Y равен от 1 до {max}");
+                      if (num == 3) Console.WriteLine($"Диапозон X равен от -1 до {min}, диапозон Y равен от -1 до {min}");
+                      if (num == 4) Console.WriteLine($"Диапозон X равен от 1 до {max}, диапозон Y равен от -1 до {min}");
+                      else Console.WriteLine("Диапозона не существует");
+                  Console.ReadKey();
+                  }
+                  catch 
+                  {
+                      Console.WriteLine("Не удовлетворяет условию");
+                  }    
               }
-              catch 
-              {
-                  Console.WriteLine("Не удовлетворяет условию");
-              }    
           }
       }
-  }
   
 # 9.
 
-  namespace HelloWorld
-  {
-      class Program
+      namespace HelloWorld
       {
-          public static void Main(string[] args)
+          class Program
           {
-              int a = Convert.ToInt32(Console.ReadLine()); // Читаем число с консоли
-              int[] squares = GetSquare(a); // Получаем резкльтат функции GetSquare
-
-              for (int i = 0; i < squares.Length; i++) // Перебор массива с помощью цикла
+              public static void Main(string[] args)
               {
-                  Console.WriteLine( squares[i] + " "); // вывод чисел в консоль
-              }
-          }
+                  int a = Convert.ToInt32(Console.ReadLine()); // Читаем число с консоли
+                  int[] squares = GetSquare(a); // Получаем резкльтат функции GetSquare
 
-          public static int[] GetSquare(int n) // Объявляем функцию GetSquare
-          {
-              int[] square = new int[n]; // Создание массива с размерностью n
-              for (int i = 1; i <= n; i++) // Объявление цикла от 1 до n включительно
-              {
-                  square[i - 1] = i * i; // Запись в i - 1 элемент массива (по индексу) квадрата числа I           
+                  for (int i = 0; i < squares.Length; i++) // Перебор массива с помощью цикла
+                  {
+                      Console.WriteLine( squares[i] + " "); // вывод чисел в консоль
+                  }
               }
-              return square;// Возвращение массива
+
+              public static int[] GetSquare(int n) // Объявляем функцию GetSquare
+              {
+                  int[] square = new int[n]; // Создание массива с размерностью n
+                  for (int i = 1; i <= n; i++) // Объявление цикла от 1 до n включительно
+                  {
+                      square[i - 1] = i * i; // Запись в i - 1 элемент массива (по индексу) квадрата числа I           
+                  }
+                  return square;// Возвращение массива
+              }
           }
       }
-  }
   
  # 10.
  
-  namespace HelloWorld
-  {
-      class Program
+      namespace HelloWorld
       {
-          public static void Main(string[] args)
+          class Program
           {
-              int a = Convert.ToInt32(Console.ReadLine());
-
-              for (int i = 1; i <= a; i++)
+              public static void Main(string[] args)
               {
-                  PrintSquare(i);
+                  int a = Convert.ToInt32(Console.ReadLine());
+
+                  for (int i = 1; i <= a; i++)
+                  {
+                      PrintSquare(i);
+                  }
+              }
+
+              public static void PrintSquare(int n)
+              {
+                  Console.WriteLine(n * n);
               }
           }
-
-          public static void PrintSquare(int n)
-          {
-              Console.WriteLine(n * n);
-          }
       }
-  }
   
 # 11.
 
