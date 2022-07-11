@@ -262,365 +262,365 @@
   
 # 11.
 
-  // Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
-  // 14212 -> нет
-  // 12821 -> да
-  // 23432 -> да
+      // Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+      // 14212 -> нет
+      // 12821 -> да
+      // 23432 -> да
 
-  namespace HelloWorld
-  {
-      class Program
+      namespace HelloWorld
       {
-          public static void Main(string[] args)
+          class Program
           {
-              try
+              public static void Main(string[] args)
               {
-                  Console.Write("Введите 5ти значное число: ");
-                  int num = Convert.ToInt32(Console.ReadLine());
-                  string str = num.ToString();
-                  char[] strReverse = str.ToCharArray();
-                  Array.Reverse(strReverse);
-                  string str1 = new string(strReverse);
-                  if (str.Length < 6 && str.Length > 4)
+                  try
                   {
-                      if (str == str1) Console.WriteLine("Число является палиндромом");
-                      else Console.WriteLine("Число не является палиндромом");
+                      Console.Write("Введите 5ти значное число: ");
+                      int num = Convert.ToInt32(Console.ReadLine());
+                      string str = num.ToString();
+                      char[] strReverse = str.ToCharArray();
+                      Array.Reverse(strReverse);
+                      string str1 = new string(strReverse);
+                      if (str.Length < 6 && str.Length > 4)
+                      {
+                          if (str == str1) Console.WriteLine("Число является палиндромом");
+                          else Console.WriteLine("Число не является палиндромом");
+                      }
+                      else Console.WriteLine("Число не удовлетворяет условию");
                   }
-                  else Console.WriteLine("Число не удовлетворяет условию");
+                  catch 
+                  {
+                      Console.WriteLine("Не удовлетворяет условию");
+                  }    
               }
-              catch 
-              {
-                  Console.WriteLine("Не удовлетворяет условию");
-              }    
           }
       }
-  }
   
 # 12.
 
-// Написать программу нахождения N!
+    // Написать программу нахождения N!
 
-  namespace HelloWorld
-  {
-      class Program
+      namespace HelloWorld
       {
-          public static void Main(string[] args)
+          class Program
           {
-              Console.Write("Введите число: ");
-              int N = Convert.ToInt32(Console.ReadLine());
-              int i = 1;
-              int result = 1;
-              while (i <= N)
+              public static void Main(string[] args)
               {
-                  result = result * i;
-                  i++;
-              }
-              Console.WriteLine(result);
+                  Console.Write("Введите число: ");
+                  int N = Convert.ToInt32(Console.ReadLine());
+                  int i = 1;
+                  int result = 1;
+                  while (i <= N)
+                  {
+                      result = result * i;
+                      i++;
+                  }
+                  Console.WriteLine(result);
 
+              }
           }
       }
-  }
   
 # 13.
 
-// Напишите программу, которая выводит массив из 8 элементов, заполненный нулями и единицами в случайном порядке.
+    // Напишите программу, которая выводит массив из 8 элементов, заполненный нулями и единицами в случайном порядке.
 
-  namespace HelloWorld
-  {
-      class Program
+      namespace HelloWorld
       {
-          static void Main()
+          class Program
           {
-              int[] arr;
-              FillArray(out arr);
-              PrintArray(arr);
-
-          }
-
-          static void FillArray(out int[] arr)
-          {
-              arr = new int[8];
-              for (int i = 0; i < 8; i++)
+              static void Main()
               {
-                  arr[i] = new Random().Next(0, 2);
-              }
-          }
+                  int[] arr;
+                  FillArray(out arr);
+                  PrintArray(arr);
 
-          static void PrintArray(int[] arr)
-          {
-              for (int i = 0; i < arr.Length; i++)
-              {
-                  Console.Write(arr[i] + " ");
               }
-              Console.WriteLine();
+
+              static void FillArray(out int[] arr)
+              {
+                  arr = new int[8];
+                  for (int i = 0; i < 8; i++)
+                  {
+                      arr[i] = new Random().Next(0, 2);
+                  }
+              }
+
+              static void PrintArray(int[] arr)
+              {
+                  for (int i = 0; i < arr.Length; i++)
+                  {
+                      Console.Write(arr[i] + " ");
+                  }
+                  Console.WriteLine();
+              }
           }
       }
-  }
   
 # 14.
 
-// Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+    // Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
 
-  namespace HelloWorld
-  {
-      class Program
+      namespace HelloWorld
       {
-          public static void Main(string[] args)
+          class Program
           {
-              Console.Write("Введите первое число: ");
-              int a = Convert.ToInt32(Console.ReadLine());
-              Console.Write("Введите второе число: ");
-              int b = Convert.ToInt32(Console.ReadLine());
-              double c = Math.Pow(a, b);
-              Console.WriteLine("Ответ: " + c);
+              public static void Main(string[] args)
+              {
+                  Console.Write("Введите первое число: ");
+                  int a = Convert.ToInt32(Console.ReadLine());
+                  Console.Write("Введите второе число: ");
+                  int b = Convert.ToInt32(Console.ReadLine());
+                  double c = Math.Pow(a, b);
+                  Console.WriteLine("Ответ: " + c);
+              }
           }
       }
-  }
   
 # 15.
 
-  // Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+      // Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
 
-  namespace HelloWorld
-  {
-      class Program
+      namespace HelloWorld
       {
-          public static void Main(string[] array)
+          class Program
           {
-              try
+              public static void Main(string[] array)
               {
-                  Console.Write("Введите число: ");
-                  int number = Convert.ToInt32(Console.ReadLine());
-                  string str = number.ToString();
-                  int sum = 0;
-
-                  if (number > 0)
+                  try
                   {
-                      for (int i = 0; i < str.Length; i++)
+                      Console.Write("Введите число: ");
+                      int number = Convert.ToInt32(Console.ReadLine());
+                      string str = number.ToString();
+                      int sum = 0;
+
+                      if (number > 0)
                       {
-                          sum = sum + Convert.ToInt32(str[i].ToString());;
+                          for (int i = 0; i < str.Length; i++)
+                          {
+                              sum = sum + Convert.ToInt32(str[i].ToString());;
+                          }
+                          Console.WriteLine("Сумма цифр = " + sum);
                       }
-                      Console.WriteLine("Сумма цифр = " + sum);
+
+                      else
+                      {
+                          for (int i = 1; i < str.Length; i++)
+                          {
+                              sum = sum + Convert.ToInt32(str[i].ToString());;
+                          }
+                          Console.WriteLine("Сумма цифр = " + sum); 
+                      }
                   }
 
-                  else
+                  catch 
                   {
-                      for (int i = 1; i < str.Length; i++)
-                      {
-                          sum = sum + Convert.ToInt32(str[i].ToString());;
-                      }
-                      Console.WriteLine("Сумма цифр = " + sum); 
+                      Console.WriteLine("Значение не удовлетворяет условию");    
                   }
-              }
-
-              catch 
-              {
-                  Console.WriteLine("Значение не удовлетворяет условию");    
               }
           }
       }
-  }
   
 # 16.
 
-  // Напишите программу, которая задаёт случайный массив случайного размера (от 5 до 10) элементов (значение элементов от 1 до 40) 
-  // и выводит на экран массив квадратов этих чисел. 
-  // 1, 2, 5, 7, 19 -> [2, 4, 25, 49, 361]
-  // 6, 1, 33 -> [36, 1, 1089] 
+      // Напишите программу, которая задаёт случайный массив случайного размера (от 5 до 10) элементов (значение элементов от 1 до 40) 
+      // и выводит на экран массив квадратов этих чисел. 
+      // 1, 2, 5, 7, 19 -> [2, 4, 25, 49, 361]
+      // 6, 1, 33 -> [36, 1, 1089] 
 
-  namespace ConsoleApplication1
-  {
-      class Program
+      namespace ConsoleApplication1
       {
-          static void Main(string[] args)
+          class Program
           {
-              int[] arr;
-              FillArray(out arr);
-              PrintArray(arr);
-              GetScuare(arr);
-          }
-
-          static void FillArray(out int[] arr)
-          {
-              Random rand = new Random((int)DateTime.Now.Ticks);
-              arr = new int[rand.Next(5, 10)];
-              for (int i = 0; i < arr.Length; i++)
+              static void Main(string[] args)
               {
-                  arr[i] = rand.Next(1, 40);
+                  int[] arr;
+                  FillArray(out arr);
+                  PrintArray(arr);
+                  GetScuare(arr);
               }
-          }
 
-          static void PrintArray(int[] arr)
-          {
-              for (int i = 0; i < arr.Length; i++)
+              static void FillArray(out int[] arr)
               {
-                  Console.Write(arr[i] + " ");
+                  Random rand = new Random((int)DateTime.Now.Ticks);
+                  arr = new int[rand.Next(5, 10)];
+                  for (int i = 0; i < arr.Length; i++)
+                  {
+                      arr[i] = rand.Next(1, 40);
+                  }
               }
-              Console.WriteLine();
-          }
 
-          static void GetScuare(int[] arr)
-          {
-
-              for(int i = 0; i < arr.Length; i++)
+              static void PrintArray(int[] arr)
               {
-                 Console.Write(arr[i] * arr[i] + " "); 
+                  for (int i = 0; i < arr.Length; i++)
+                  {
+                      Console.Write(arr[i] + " ");
+                  }
+                  Console.WriteLine();
+              }
+
+              static void GetScuare(int[] arr)
+              {
+
+                  for(int i = 0; i < arr.Length; i++)
+                  {
+                     Console.Write(arr[i] * arr[i] + " "); 
+                  }
               }
           }
       }
-  }
   
 # 17.
 
-  // Задайте массив заполненный случайными положительными трёхзначными числами. 
-  // Напишите программу, которая покажет количество чётных чисел в массиве.
-  // [345, 897, 568, 234] -> 2
+      // Задайте массив заполненный случайными положительными трёхзначными числами. 
+      // Напишите программу, которая покажет количество чётных чисел в массиве.
+      // [345, 897, 568, 234] -> 2
 
-  namespace HelloWorld
-  {
-      class Program
+      namespace HelloWorld
       {
-          public static void Main(string[] args)
+          class Program
           {
-              int[] arr;
-              FillArray(out arr);
-              PrintArray(arr);
-              EvenNumber(arr);
-          }
-
-          public static void FillArray(out int[] arr)
-          {
-              Random rand = new Random((int)DateTime.Now.Ticks);
-              arr = new int[rand.Next(1, 10)];
-              for(int i = 0; i < arr.Length; i++)
+              public static void Main(string[] args)
               {
-                  arr[i] = rand.Next(100, 1000);
+                  int[] arr;
+                  FillArray(out arr);
+                  PrintArray(arr);
+                  EvenNumber(arr);
               }
 
-          }
-
-          public static void PrintArray(int[] arr)
-          {
-              for (int i = 0; i < arr.Length; i++)
+              public static void FillArray(out int[] arr)
               {
-                  Console.Write(arr[i] + " ");
-              }
-              Console.WriteLine();
-          }
-
-          public static void EvenNumber(int[] arr)
-          {
-              int Result = 0;
-              for (int i = 0; i < arr.Length; i++)
-              {
-                  if (arr[i] % 2 == 0)
+                  Random rand = new Random((int)DateTime.Now.Ticks);
+                  arr = new int[rand.Next(1, 10)];
+                  for(int i = 0; i < arr.Length; i++)
                   {
-                      Result = Result + 1;
+                      arr[i] = rand.Next(100, 1000);
                   }
+
               }
-              Console.WriteLine("Количество четных чисел: " + Result);
+
+              public static void PrintArray(int[] arr)
+              {
+                  for (int i = 0; i < arr.Length; i++)
+                  {
+                      Console.Write(arr[i] + " ");
+                  }
+                  Console.WriteLine();
+              }
+
+              public static void EvenNumber(int[] arr)
+              {
+                  int Result = 0;
+                  for (int i = 0; i < arr.Length; i++)
+                  {
+                      if (arr[i] % 2 == 0)
+                      {
+                          Result = Result + 1;
+                      }
+                  }
+                  Console.WriteLine("Количество четных чисел: " + Result);
+              }
           }
       }
-  }
   
 # 18.
 
-  // Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
-  // [3, 7, 23, 12] -> 19
-  // [-4, -6, 89, 6] -> 0
+      // Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+      // [3, 7, 23, 12] -> 19
+      // [-4, -6, 89, 6] -> 0
 
-  namespace HelloWorld
-  {
-      class Program
+      namespace HelloWorld
       {
-          public static void Main(string[] args)
+          class Program
           {
-              int[] arr;
-              FillArray(out arr);
-              PrintArray(arr);
-              Sum(arr);
-          }
-
-          public static void FillArray(out int[] arr)
-          {
-              Random rand = new Random((int)DateTime.Now.Ticks);
-              arr = new int[rand.Next(5, 15)];
-              for(int i = 0; i < arr.Length; i++)
+              public static void Main(string[] args)
               {
-                  arr[i] = rand.Next(1, 100);
+                  int[] arr;
+                  FillArray(out arr);
+                  PrintArray(arr);
+                  Sum(arr);
               }
-          }
 
-          public static void PrintArray(int[] arr)
-          {  
-              for(int i = 0; i < arr.Length; i++)
+              public static void FillArray(out int[] arr)
               {
-                  Console.Write(arr[i] + " ");
+                  Random rand = new Random((int)DateTime.Now.Ticks);
+                  arr = new int[rand.Next(5, 15)];
+                  for(int i = 0; i < arr.Length; i++)
+                  {
+                      arr[i] = rand.Next(1, 100);
+                  }
               }
-              Console.WriteLine();
-          }
 
-          public static void Sum(int[] arr)
-          {
-              int sum = 0;
-              for(int i = 1; i < arr.Length; i = i + 2)
-              {
-              sum = sum + arr[i];
+              public static void PrintArray(int[] arr)
+              {  
+                  for(int i = 0; i < arr.Length; i++)
+                  {
+                      Console.Write(arr[i] + " ");
+                  }
+                  Console.WriteLine();
               }
-              Console.WriteLine("Сумма: " +sum);
+
+              public static void Sum(int[] arr)
+              {
+                  int sum = 0;
+                  for(int i = 1; i < arr.Length; i = i + 2)
+                  {
+                  sum = sum + arr[i];
+                  }
+                  Console.WriteLine("Сумма: " +sum);
+              }
           }
       }
-  }
   
 # 19.
 
-  // Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
-  // [3 7 22 2 78] -> 76
+      // Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+      // [3 7 22 2 78] -> 76
 
-  namespace HelloWorld
-  {
-      class Program
+      namespace HelloWorld
       {
-          public static void Main(string[] args)
+          class Program
           {
-              int[] arr;
-              FillArray(out arr);
-              PrintArray(arr);
-              Diff(arr);
-          }
-
-          public static void FillArray(out int[] arr)
-          {
-              Random rand = new Random();
-              arr = new int[rand.Next(5, 10)];
-              for (int i = 0; i < arr.Length; i++)
+              public static void Main(string[] args)
               {
-                  arr[i] =  new Random().Next(1, 100);
+                  int[] arr;
+                  FillArray(out arr);
+                  PrintArray(arr);
+                  Diff(arr);
               }
-          }
 
-
-          public static void PrintArray(int[] arr)
-          {
-              for (int i = 0; i < arr.Length; i++)
+              public static void FillArray(out int[] arr)
               {
-                  Console.Write(arr[i] + " ");
+                  Random rand = new Random();
+                  arr = new int[rand.Next(5, 10)];
+                  for (int i = 0; i < arr.Length; i++)
+                  {
+                      arr[i] =  new Random().Next(1, 100);
+                  }
               }
-              Console.WriteLine();
-          }
 
-          public static void Diff(int[] arr)
-          {
-              int max = arr[0];
-              int min = arr[0];
-              int diff = 0;
-              for (int i = 1; i < arr.Length; i++)
+
+              public static void PrintArray(int[] arr)
               {
-                  if (max < arr[i]) max = arr[i];
-                  if (min > arr[i]) min = arr[i];
+                  for (int i = 0; i < arr.Length; i++)
+                  {
+                      Console.Write(arr[i] + " ");
+                  }
+                  Console.WriteLine();
               }
-              diff = max - min;
-              Console.WriteLine("Разница: " + diff);
+
+              public static void Diff(int[] arr)
+              {
+                  int max = arr[0];
+                  int min = arr[0];
+                  int diff = 0;
+                  for (int i = 1; i < arr.Length; i++)
+                  {
+                      if (max < arr[i]) max = arr[i];
+                      if (min > arr[i]) min = arr[i];
+                  }
+                  diff = max - min;
+                  Console.WriteLine("Разница: " + diff);
+              }
           }
       }
-  }
