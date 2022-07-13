@@ -624,3 +624,241 @@
               }
           }
       }
+      
+  # 20.
+  
+    using Bag2;
+    using Calc;
+
+    namespace Bag1
+    {
+        internal class Program
+        {
+            static void Main()
+            {
+                Apple apple = new Apple();
+                apple.weight = 100;
+                apple.Name = "";
+                apple.Count = 1;
+
+                string s1 = apple.Name;
+                Console.WriteLine(s1);
+
+                apple.Name = "abcabc";
+                Console.WriteLine(apple.Name);
+
+                apple.Print(10, 100);
+
+
+                int sum = Calculation.Sum(5, 5);
+                Console.WriteLine("5 + 5 = " + sum);
+            }
+        }
+
+        public class Apple
+        {
+            # region Поля_и_свойства
+            public int weight;
+
+            // public string Name2 = "Apple";
+
+            private string name = "Apple";
+
+            public string Name
+            {
+                get // get - специальная функция, которя вызывается при обращении к свойству (string s = apple.Name)
+                {
+                    return name;
+                }
+
+                set // set - специальная функция, которая вызывается, когда пытаемся записать что-то в свойство (apple.Name = какое-то значение)
+                {
+                    if (IsValid(value))     // string.IsNullOrEmpty(value) - возвращает true, если value == null или value == ""
+                    {                       // ! -- меняем true на false и false на true
+                        name = value;       // value -- кодовое слово, которое определяет входящее значение (apple.Name = какое-то значение) -- value = какое-то значение
+                    }
+                }
+            }
+
+            private bool IsValid(string name)
+            {
+                return true;
+            }
+
+            public string AppleInfo
+            {
+                get
+                {
+                    return GetAppleInfo();
+                }
+            }
+
+            public int Count { get; set; }
+
+            private string color = "red";
+
+            # endregion
+
+            public void Print(int x, int y)
+            {
+                Console.WriteLine(GetAppleInfo());
+            }
+
+            private string GetAppleInfo()
+            {
+                return $"Яблоко с названием {Name}, цветом {color}, весом {weight} и колличеством {Count}";
+            }
+        }
+
+    }
+    
+    
+    namespace Bag2
+    {
+        public class Banana
+        {
+            # region Поля_и_свойства
+            public int weight = 20;
+
+            private string name = "Banana";
+
+            public string Name
+            {
+                get 
+                {
+                    return name;
+                }
+
+                set 
+                {
+                    if (string.IsNullOrEmpty(value))  // string.IsNullOrEmpty(value) - возвращает true, если value == null или value == ""
+                    {                       
+                        name = value;   
+                    }
+                }
+            }
+
+            public int Count { get; set; }
+
+            private string color = "yellow";
+
+            # endregion
+
+            public void Print()
+            {
+                Console.WriteLine(GetBananInfo());
+            }
+
+            private string GetBananInfo()
+            {
+            return $"Яблоко с названием {Name}, цветом {color}, весом {weight} и колличеством {Count}";
+            }
+        }
+    }
+    
+    
+    namespace Calc
+    {
+        public static class Calculation
+        {
+            public static int Sum(int x, int y)
+            {
+                return x + y;
+            }
+        }
+    }
+    
+# 21.
+
+    // Напишите программу замены элеиентов массива: положительные на отрицательные и наоборот.
+    // [-4, -8, 8, 2] -> [4, 8, -8, -2]
+
+    namespace HelloWorld
+    {
+        class Program
+        {
+            public static void Main()
+            {
+                int[] arr;
+                FillArray(out arr);
+                PrintArray(arr);
+                Transformation(arr);
+            }
+
+            public static void FillArray(out int[] arr)
+            {
+                Random rand = new Random();
+                arr = new int[rand.Next(5, 11)];
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    arr[i] = new Random().Next(-20, 21);
+                }
+            }
+
+            public static void PrintArray(int[] arr)
+            {
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    Console.Write(arr[i] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            public static void Transformation(int[] arr)
+            {
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (arr[i] > 0) arr[i] = arr[i] * -1;
+                    else arr[i] = arr[i] * -1;
+                    Console.Write(arr[i] + " ");
+                }
+
+            }
+        }
+    }
+    
+# 22.
+
+    // Задайте массив. Напишите программу, которая определяет присутсвует ли заданное число в массиве.
+
+
+    namespace HelloWorld
+    {
+        class Program
+        {
+            public static void Main()
+            {
+                Console.Write("Введите целое число: ");
+                int N = Convert.ToInt32(Console.ReadLine());
+                int[] arr;
+                FillArray(out arr);
+                PrintArray(arr);
+                // Result(arr);
+                if (Valid(arr, N)) Console.WriteLine($"Число {N} присутствует");
+                else Console.WriteLine($"Число {N} отсутствует");
+            }
+
+            public static bool Valid(int[] arr, int c)
+            {
+                bool N = false;
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (c == arr[i]) N = true;
+                }
+                return N;
+            }
+
+            public static void FillArray(out int[] arr)
+            {
+                Random rand = new Random();
+                arr = new int[rand.Next(5, 11)];
+                for (int i = 0; i < arr.Length; i++) arr[i] = rand.Next(-20, 20);
+            }
+
+            public static void PrintArray(int[] arr)
+            {
+                for (int i = 0; i < arr.Length; i++) Console.Write(arr[i] + " ");
+                Console.WriteLine();
+            }
+        }
+    }
