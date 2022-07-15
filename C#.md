@@ -249,3 +249,42 @@
     }
 
     string res = Method4(10, "asdf");
+    
+# Необработанное исключение.
+
+    // Unhandled exceptions - необработанное исключение
+    // Можно обрабатывать несколько исключений сразу
+
+
+    namespace GB
+    {
+        class Program
+        {
+            public static void Main()
+            {
+                try
+                {
+                    Console.WriteLine("Введите число");
+                    string? str = Console.ReadLine();
+                    int num = Convert.ToInt32(str);
+                    // num = num / 0;
+                }
+
+                catch (FormatException) //FormatException - неверный формат данных
+                {
+                    Console.WriteLine("Неверные данные");
+                    // Main(); // Рекурсия, если будет введено не число, main будет перевызываться 
+                }
+
+                catch (DivideByZeroException) // Ошибка деления на ноль
+                {
+                     Console.WriteLine("Делить на ноль нельзя");
+                }
+                finally
+                {
+                    Console.WriteLine("finally");
+                }
+            }
+        }
+
+    }
