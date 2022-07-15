@@ -862,3 +862,50 @@
             }
         }
     }
+    
+# 23.
+
+    // Напишите программу, которая перевернет одномерный массив(последний элемент будет первым и наоборот)
+    // [1 2 3 4] -> [4 3 2 1]
+
+    namespace HelloWorld
+    {
+        class Program
+        {
+            public static void Main()
+            {
+                int[] arr;
+                FillArray(out arr);
+                PrintArray(arr);
+                Console.WriteLine();
+                Reverse(arr);
+            }
+
+            public static void FillArray(out int[] arr)
+            {
+                Random rand = new Random();
+                arr = new int[rand.Next(3, 6)];
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    arr[i] = new Random().Next(0, 11);
+                }
+            }
+
+            public static void PrintArray(int[] arr)
+            {
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    Console.Write(arr[i] + " ");
+                }
+            }
+
+            public static void Reverse(int[] arr)
+            {
+                int[] arr1 = Enumerable.Reverse(arr).ToArray();
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    Console.Write(arr1[i] + " ");
+                }
+            }
+        }
+    }
