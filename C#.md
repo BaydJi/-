@@ -288,3 +288,72 @@
         }
 
     }
+    
+# List
+
+    namespace GB
+    {
+        class Program
+        {
+            /// <summary>Основной метод Main</summary>
+            static void Main(string[] args)
+            {
+                int[] a = new int[5] { 1, 2, 3, 4, 5 };
+                // int[,] b = new int[5, 2] { {1, 2, 3, 4, 5} {1, 2, 3, 4, 5} };
+                List<int> list = new List<int>();
+                FillList(list, 5);
+
+                List<Point> program = new List<Point>();
+                Point[] programList = new Point[5];
+                // list.Add(6);  // С помощью Add можно добавить доп. значения 
+                // list.Add(7);
+                // list.Add(10);
+
+                list.Remove(5);   // Удалим число 5
+                list.RemoveAt(4); // Удалим значение с индексом 4
+
+                // list.AddRange(a);
+
+                foreach (int number in list) // Удобней этим циклом выводить массив. Но в нем нельзя ничего изменить.
+                {
+                    Console.WriteLine(number);
+                }
+
+                // for (int i = 0; i < list.Count; i++)
+                // {
+                //     Console.WriteLine(list[i] + " ");
+                // }
+
+                int num = list.Find(x => x % 2 == 0); // Лямбда выражение или стрелочная функция
+
+                // foreach (int x in list)  // Верхний вариант взамен этого цикла
+                // {
+                //     if (x % 2 == 0)
+                //     {
+                //         num = x;
+                //         break;
+                //     }
+                // }
+
+                Console.WriteLine(num);
+
+            }
+
+            /// <summary>Заполнение коллекции List<int> случайными числами от 0 до 10</summary>
+            /// <param name="list">List<int> Для заполнения значениями</param>
+            /// <param name="count">Количество случайных значений</param>
+            public static void FillList(List<int> list, int count)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    list.Add(new Random().Next(0, 11));
+                }
+            }
+        }
+
+        public class Point
+        {
+            int x;
+            int y;
+        }
+    }
