@@ -978,3 +978,284 @@
             }
         }
     }
+    
+# 26.
+
+    // Сумма элементов главной диагонали
+    namespace HelloWorld
+    {
+        class Program
+        {
+            public static void Main()
+            {
+                int rows = 8;
+                int columns = 5;
+                int[,] massiv = new int[rows, columns];
+                FillArray(massiv);
+                PrintArray(massiv);
+                Sum(massiv);
+            }
+
+            public static void FillArray(int[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        massiv[i, j] = new Random().Next(0, 11);
+                    }
+                }
+                return;
+            }
+
+            public static void PrintArray(int[,] massiv)
+            {
+                Console.WriteLine("Массив:");
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        Console.Write(massiv[i, j] + " ");
+                    }
+                    Console.WriteLine();
+                }
+                return;
+            }
+
+            public static void Sum(int[,] massiv)
+            {
+                int sum = 0;
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        if (i == j) sum += massiv[i, j];
+                    }
+                }
+                Console.WriteLine("Сумма по диагонали: " + sum);
+                return;
+            }
+        }
+    }
+
+# 27.
+
+    // Задайте двумерный массив m на n, каждый элемент в массиве находится по формуле A(m,n) = m + n
+
+    namespace HelloWorld
+    {
+        class Program
+        {
+            public static void Main()
+            {
+                int m = new Random().Next(0, 5);
+                int n = new Random().Next(0, 5);
+                int[,] massiv = new int[m, n];
+                FillArray(massiv);
+                PrintArray(massiv);
+            }
+
+            public static void FillArray(int[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        massiv[i, j] = i + j;
+                    }  
+                }
+            }
+
+            public static void PrintArray(int[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        Console.Write(massiv[i, j] + " ");
+                    }
+                    Console.WriteLine();
+                }
+            }
+        }
+    }
+    
+ # 28.
+ 
+    // Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+    // m = 3, n = 4.
+    // 0,5 7 -2 -0,2
+    // 1 -3,3 8 -9,9
+    // 8 7,8 -7,1 9
+
+    namespace KakVsegda
+    {
+        class Program
+        {
+            public static void Main()
+            {
+                double[,] massiv = new double[3, 4];
+                FillArray(massiv);
+                PrintArray(massiv);
+            }
+
+            public static void FillArray(double[,] massiv)
+            {
+                double minRange = -10;
+                double maxRange = 10;
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        massiv[i, j] = new Random().NextDouble() * (maxRange - minRange) + minRange;
+                    }
+                }
+            }
+
+            public static void PrintArray(double[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        Console.Write(Math.Round(massiv[i, j], 2) + " ");
+                    }
+                    Console.WriteLine();
+                }
+            }
+        }
+    }
+    
+# 29.
+
+    // Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента 
+    // или же указание, что такого элемента нет.
+    // Например, задан массив:
+    // 1 4 7 2
+    // 5 9 2 3
+    // 8 4 2 4
+    // 17 -> такого числа в массиве нет
+
+    namespace NuVotOpyat
+    {
+        class Program
+        {
+            public static void Main()
+            {
+                Console.Write("Введите номер строки: ");
+                int length = Convert.ToInt32(Console.ReadLine()) - 1;
+                Console.Write("Введите номер столбца: ");
+                int column = Convert.ToInt32(Console.ReadLine()) - 1;
+                int a = new Random().Next(5, 11);
+                int b = new Random().Next(1, 20);
+                int[,] massiv = new int[a, b];
+                FillArray(massiv);
+                PrintArray(massiv);
+                CheckValue(massiv);
+            }
+
+            public static void FillArray(int[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        massiv[i, j] = new Random().Next(0, 100);
+                    }
+                }
+            }
+
+            public static void PrintArray(int[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        Console.Write(massiv[i, j] + " ");
+                    }
+                    Console.WriteLine();
+                }
+            }
+
+            public static void CheckValue(int[,] massiv)
+            {
+                if (length < 0 | length > massiv.GetLength(0) - 1 | column < 0 | column > massiv.GetLength(1) - 1)
+                {
+                    Console.WriteLine("Такого элемента нет.");
+                }
+
+                else
+                {
+                    Console.WriteLine("Значение элемента: " + massiv[length, column]);
+                }
+            }
+        }
+    }
+    
+# 30.
+
+    // Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+    // Например, задан массив:
+    // 1 4 7 2
+    // 5 9 2 3
+    // 8 4 2 4
+    // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
+    namespace NuVotOpyat
+    {
+        public class Program
+        {
+            /// <summary>Основной метод программы</summary>
+            static void Main()
+            {
+
+                int[,] massiv = new int[5, 5];
+                FillArray(massiv);
+                PrintArray(massiv);
+                Average(massiv);
+            }
+
+            public static void FillArray(int[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        massiv[i, j] = new Random().Next(0, 21);
+                    }
+                }
+                return;
+            }
+
+            public static void PrintArray(int[,] massiv)
+            {
+                Console.WriteLine("Massiv: ");
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        Console.Write(massiv[i, j] + " ");
+                    }
+                    Console.WriteLine();
+                }
+                return;
+            }
+
+            public static void Average(int[,] massiv)
+            {
+                Console.WriteLine("Average: ");
+                for (int i = 0; i < massiv.GetLength(1); i++)
+                {
+                    double sum = 0;
+                    for (int j = 0; j < massiv.GetLength(0); j++)
+                    {
+                        sum += massiv[j, i];
+                    }
+                    sum = sum / massiv.GetLength(0);
+
+                    Console.Write(Math.Round(sum, 1) + " ");
+                }
+                return;
+            }
+        }
+    }
