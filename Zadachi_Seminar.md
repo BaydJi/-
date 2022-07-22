@@ -1259,3 +1259,69 @@
             }
         }
     }
+    
+# 31.
+
+    // Задайте двумерный массив. Транспонируйте матрицу, если нет возможности, вывести сообщение что сделать нельзя
+
+    namespace HelloWorld
+    {
+        class Program
+        {
+            public static void Main()
+            {
+                int rows = new Random().Next(1, 5);
+                int colums = new Random().Next(2, 5);
+                int[,] massiv = new int[rows, colums];
+                Console.WriteLine("Массив:");
+                FillMassiv(massiv);
+                PrintMassiv(massiv);
+                Console.WriteLine();
+                TranspMassiv(massiv);
+            }
+
+            public static void FillMassiv(int[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        massiv[i, j] = new Random().Next(0, 10);
+                    }
+                }
+            }
+
+            public static void PrintMassiv(int[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        Console.Write(massiv[i, j] + " ");
+                    }
+                    Console.WriteLine();
+                }
+            }
+
+            public static void TranspMassiv(int[,] massiv)
+            {
+                int[,] massivTransp = new int[massiv.GetLength(0), massiv.GetLength(1)];
+                if (massiv.GetLength(0) == massiv.GetLength(1))
+                {
+                    Console.WriteLine("Транспорированный массив:");
+                    for (int i = 0; i < massiv.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < massiv.GetLength(1); j++)
+
+                        {
+                            massivTransp[i, j] = massiv[j, i];
+                            Console.Write(massivTransp[i, j] + " ");
+                        }
+                        Console.WriteLine();
+                    }
+                }
+                else Console.WriteLine("Невозможно транспорировать матрицу.");
+
+            }
+        }
+    }
