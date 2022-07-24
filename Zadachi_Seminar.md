@@ -1325,3 +1325,210 @@
             }
         }
     }
+    
+# 32.
+
+    // Задайте двумерный массив. Напишите программу, которая упорядочит по возрастанию элементы каждой строки двумерного массива.
+    // Например, задан массив:
+
+    // 1 4 7 2
+    // 5 9 2 3
+    // 8 4 2 4
+
+    // В итоге получается вот такой массив:
+
+    // 1 2 4 7
+    // 2 3 5 9
+    // 2 4 4 8
+
+    namespace HelloWorld
+    {
+        class Program
+        {
+            public static void Main()
+            {
+                int rows = new Random().Next(2, 5);
+                int colums = new Random().Next(2, 5);
+                int[,] massiv = new int[rows, colums];
+                Console.WriteLine("Массив:");
+                FillMassiv(massiv);
+                PrintMassiv(massiv);
+                Console.WriteLine();
+                Console.WriteLine("Упорядоченный массив: ");
+                RegularMassiv(massiv);
+                PrintMassiv(massiv);
+            }
+
+            public static void FillMassiv(int[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        massiv[i, j] = new Random().Next(0, 10);
+                    }
+                }
+            }
+
+            public static void PrintMassiv(int[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        Console.Write(massiv[i, j] + " ");
+                    }
+                    Console.WriteLine();
+
+                }
+            }
+
+            public static void RegularMassiv(int[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        for (int k = 0; k < massiv.GetLength(1) - 1; k++)
+                        {
+                            if (massiv[i, k] > massiv[i, k + 1])
+                            {
+                                int temp = massiv[i, k + 1];
+                                massiv[i, k + 1] = massiv[i, k];
+                                massiv[i, k] = temp;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+# 33.
+
+    // Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+    // Например, задан массив:
+    // 1 4 7 2
+    // 5 9 2 3
+    // 8 4 2 4
+    // 5 2 6 7
+    // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+
+    namespace HelloWorld
+    {
+        class Program
+        {
+            public static void Main()
+            {
+                int rows = 3;
+                int colums = 3;
+                int[,] massiv = new int[rows, colums];
+                Console.WriteLine("Массив:");
+                FillMassiv(massiv);
+                PrintMassiv(massiv);
+                Console.WriteLine();
+
+                int SumLineElements(int[,] massiv, int i)
+                {
+                    int sumLine = massiv[i, 0];
+                    for (int j = 1; j < massiv.GetLength(1); j++)
+                    {
+                        sumLine += massiv[i, j];
+                    }
+                    return sumLine;
+                }
+
+                int minSumLine = 0;
+                int sumLine = SumLineElements(massiv, 0);
+                for (int i = 1; i < massiv.GetLength(0); i++)
+                {
+                    int tempSumLine = SumLineElements(massiv, i);
+                    if (sumLine > tempSumLine)
+                    {
+                        sumLine = tempSumLine;
+                        minSumLine = i;
+                    }
+                }
+                Console.WriteLine(minSumLine+1 + "-я строкa с наименьшей суммой элементов = " + sumLine);
+            }
+
+            public static void FillMassiv(int[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        massiv[i, j] = new Random().Next(0, 10);
+                    }
+                }
+            }
+
+            public static void PrintMassiv(int[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        Console.Write(massiv[i, j] + " ");
+                    }
+                    Console.WriteLine();
+
+                }
+            }
+
+        }
+    }
+    
+# 34.
+
+    // Задача 62: Заполните спирально массив 4 на 4.
+    // 1 2 3 4
+    // 12 13 14 5
+    // 11 16 15 6
+    // 10 9 8 7
+    namespace HelloWorld
+    {
+        class Program
+        {
+            public static void Main()
+            {
+                int n = 4;
+                int[,] spiralMassiv = new int[n, n];
+
+                int temp = 1;
+                int i = 0;
+                int j = 0;
+
+                while (temp <= spiralMassiv.GetLength(0) * spiralMassiv.GetLength(1))
+                {
+                    spiralMassiv[i, j] = temp;
+                    temp++;
+                    if (i <= j + 1 && i + j < spiralMassiv.GetLength(1) - 1)
+                        j++;
+                    else if (i < j && i + j >= spiralMassiv.GetLength(0) - 1)
+                        i++;
+                    else if (i >= j && i + j > spiralMassiv.GetLength(1) - 1)
+                        j--;
+                    else
+                        i--;
+                }
+
+                PrintMassiv(spiralMassiv);
+            }
+
+            public static void PrintMassiv(int[,] massiv)
+            {
+                for (int i = 0; i < massiv.GetLength(0); i++)
+                {
+                    for (int j = 0; j < massiv.GetLength(1); j++)
+                    {
+                        if (massiv[i, j] / 10 <= 0)
+                            Console.Write($" {massiv[i, j]} ");
+
+                        else Console.Write($"{massiv[i, j]} ");
+                    }
+                    Console.WriteLine();
+                }
+            }
+        }
+    }
