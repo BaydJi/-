@@ -1532,3 +1532,86 @@
             }
         }
     }
+    
+# 35.
+
+    // Из двумерного массива целых чисел удалить строку и столбец,
+    // на пересечении которых расположен наименьший элемент.
+
+    namespace HelloWorld
+    {
+        class Program
+        {
+            public static void Main()
+            {
+                int[,] array = new int[4, 4];
+                FillArray(array);
+                Console.WriteLine("Массив:");
+                PrintArray(array);
+                int[] minIndexes = FindMinValue(array);
+                Console.WriteLine("Строка мин. значения: " + minIndexes[0]);
+                Console.WriteLine("Столбец макс. значения: " + minIndexes[1]);
+                Console.WriteLine("Измененный массив:");
+                int[,] arrayResult = RemoveRowsCols(array, minIndexes);
+                PrintArray(arrayResult);
+            }
+
+            public static void FillArray(int[,] array)
+            {
+                for (int i = 0; i < array.GetLength(0); i++)
+                {
+                    for (int j = 0; j < array.GetLength(1); j++)
+                    {
+                        array[i, j] = new Random().Next(10, 100);
+                    }
+                }
+            }
+
+            public static void PrintArray(int[,] array)
+            {
+                for (int i = 0; i < array.GetLength(0); i++)
+                {
+                    for (int j = 0; j < array.GetLength(1); j++)
+                    {
+                        Console.Write(array[i, j] + " ");
+                    }
+                    Console.WriteLine();
+                }
+            }
+
+            public static int[] FindMinValue(int[,] array)
+            {
+                int[] minIndexes = new int[2];
+                int min = array[0, 0];
+                for (int i = 1; i < array.GetLength(0); i++)
+                {
+                    for (int j = 1; j < array.GetLength(1); j++)
+                    {
+                        if (array[i, j] < min)
+                        {
+                            min = array[i, j];
+                            minIndexes[0] = i;
+                            minIndexes[1] = j;
+
+                        }
+                    }
+                }
+                return minIndexes;
+            }
+
+            public static int[,] RemoveRowsCols(int[,] array, int[] minIndexes)
+            {
+                int[,] arrayResult = new int[array.GetLength(0) - 1, array.GetLength(1) - 1];
+                for (int i = 0, m =0; i < array.GetLength(0) && m < arrayResult.GetLength(0); i++, m++)
+                {
+                    if (i == minIndexes[0]) i++;
+                    for (int j = 0, n = 0; j < array.GetLength(1) && n < arrayResult.GetLength(1); j++, n++)
+                    {
+                        if (j == minIndexes[1]) j++;
+                        arrayResult[m, n] = array[i, j];
+                    }
+                }
+                return arrayResult;
+            }
+        }
+    }
