@@ -139,7 +139,70 @@
 # Сложность алгоритма **Big O Nation** (О-натация)
 
 О(1) - О от одного - колличество действий, чтобы узнать конечный результат. 
+
+
+# Сортировки.
+
+## Сортировака выбором.
+Предпологаем что первый элемент это то что нам нужно и сравниваем его с последующими
+
+    Console.WriteLine("Введите кол-во элементов массива:");
+    int n = Convert.ToInt32(Console.ReadLine());
+    // Заполнение массива
+    int[] array = new int[n];
+    for (int i = 0; i < n; i++)
+    {
+        Console.Write("Введите число: ");
+        array[i] = Convert.ToInt32(Console.ReadLine());
+    }
+    Console.WriteLine();
+    Console.WriteLine("Начальный массив: [" + string.Join(", ", array) + "]");
+    // Cортировка
+    for (int i = 0; i < n - 1; i++)
+    {
+        int MinIndex = i;
+        for (int j = i + 1; j < n; j++)
+        {
+            if (array[j] < array[MinIndex])
+                MinIndex = j; 
+        }
+        int temp;
+        temp = array[MinIndex];
+        array[MinIndex] = array[i];
+        array[i] = temp;
+    }
+    Console.WriteLine("Конечный массив: [" + string.Join(", ", array) + "]");
     
+## Сортировка пузырьком.
+Проверка двух элементов идущих последовательно друг за другом(парные элементы). Если условие удовлетворяет, двигаемся дальше, если нет, меняем местами и начинаем заново.
+Проходиться по массиву мы будем столько раз, сколько элементов в нем находится.
+
+Cортировка пузырьком
+Начальный массив: [3, 1, 5, 0, 7, 9, 8]
+
+    Console.WriteLine("Введите кол-во элементов массива: ");
+    int n = Convert.ToInt32(Console.ReadLine());
+    int[] array = new int[n];
+    for (int i = 0; i < n; i++)
+    {
+        Console.Write("Введите значения массива: ");
+        array[i] = Convert.ToInt32(Console.ReadLine());
+    }
+    Console.WriteLine("Начальный массив: [" + string.Join(", ", array) + "]");
+    Console.WriteLine();
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n - 1; j++)
+        {
+            if (array[j] > array[j + 1])
+            {
+                int temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+        Console.WriteLine(i + "[" + string.Join(", ", array) + "]");
+    }
 
     
 
@@ -287,6 +350,12 @@
 Форматированный вывод в консоль.
 
     Console.WriteLine("/t");
+    
+## 12. Join
+Функция Join позволяет соединить каэждый элемент массива через указанный разделитель.
+Указываем в каком формате и какие элементы мы соединяем.
+
+    Console.WriteLine("Конечный массив: [" + string.Join(", ", array) + "]");
     
 
 # Виды методов
